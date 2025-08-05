@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>2_sets</title>
+  <style>
+    .tree,
+    .tree ul {list-style-type: none; padding-left: 8px;}
+    .tree li {margin: 4px 0; cursor: pointer; }
+    .tree li:before {content: "📁"; margin-right: 4px;}
+    .tree li.expanded:before {content: "📂";}
+    .tree li.collapsed > ul {display: none;}
+    .tree li.expanded > ul {display: block;}
+  </style>
+</head>
+<body>
+    <ul class="tree" id="Sets">
+      <li>Множества
+        <ul>
+          <li>Пустота</li>
+          <li>Частицы
+            <ul>
+              <li>Существующие</li>
+              <li>Квазичастицы</li>
+              <li>Гипотетические</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+</body>
+</html>
