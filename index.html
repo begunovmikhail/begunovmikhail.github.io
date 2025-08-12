@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Сущности</title>
+    <style>
+      .tree,
+      .tree ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+      .tree li {
+        margin: 5px 0;
+        position: relative;
+      }
+      .tree li:before {
+        content: "📁";
+        margin-right: 5px;
+      }
+      .tree li.collapsed > ul {
+        display: none;
+      }
+      .tree li.expanded > ul {
+        display: block;
+      }
+      .tree li.expanded:before {
+        content: "📂";
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="tree" id="myTree">
+      <li>
+        <span>Сущности</span>
+        <ul>
+          <li>
+            <span>Континуанты</span>
+            <ul>
+              <li><span>Выкуум</span></li>
+              <li>
+                <span>Частицы</span>
+                <ul>
+                  <li><span>Существующие</span></li>
+                  <li><span>Квазичастицы</span></li>
+                  <li><span>Гипотетические</span></li>
+                </ul>
+              </li>
+              <li>Вещества</li>
+              <li>Организмы</li>
+              <li>Сообщества</li>
+              <li>Продукты</li>
+              <li>Услуги</li>
+              <li>Космические тела</li>
+              <li>Системы космических тел</li>
+              <li>Галактики</li>
+              <li>Группы галактик</li>
+              <li>Скопления галактик</li>
+              <li>Сверхскопление галактик</li>
+              <li>Комплексы сверхскоплений галактик</li>
+              <li>Нити галактические</li>
+              <li>Вселенная</li>
+              <li>Разные</li>
+            </ul>
+          </li>
+          <li><span>Оккуренты</span></li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      document.querySelectorAll("#myTree li").forEach((item) => {
+        const span = item.querySelector("span");
+        if (item.querySelector("ul")) {
+          item.classList.add("collapsed");
+          item.addEventListener("click", function (e) {
+            if (
+              e.target === this ||
+              e.target === this.querySelector(":before")
+            ) {
+              this.classList.toggle("collapsed");
+              this.classList.toggle("expanded");
+            }
+          });
+          span.addEventListener("click", function (e) {
+            e.stopPropagation();
+            item.classList.toggle("collapsed");
+            item.classList.toggle("expanded");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
