@@ -14,9 +14,21 @@
         margin: 5px 0;
         position: relative;
       }
+      .tree li > span {
+            cursor: pointer;
+            display: inline-block;
+            padding: 2px 5px;
+            touch-action: manipulation; /* Оптимизация для тач-устройств */
+            user-select: none; /* Запрет выделения текста */
+            -webkit-user-select: none;
+        }
+        .tree li > span:hover {
+            background: #f0f0f0;
+        }
       .tree li:before {
         content: "📁";
         margin-right: 5px;
+        cursor: pointer;
       }
       .tree li.collapsed > ul {
         display: none;
